@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.FormatQuote
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,12 +31,19 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.vishal2376.jcquoteapp.models.Quote
 import java.util.Collections.rotate
+import kotlin.text.Typography.quote
 
-@Preview
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun QuoteListItem() {
-    Card(elevation = CardDefaults.cardElevation(5.dp), shape = RoundedCornerShape(10.dp)) {
+fun QuoteListItem(quote: Quote, onClick: () -> Unit) {
+    Card(
+        elevation = CardDefaults.cardElevation(5.dp),
+        onClick = onClick,
+        shape = RoundedCornerShape(10.dp),
+        modifier = Modifier.padding(4.dp)
+    ) {
         Row(modifier = Modifier.padding(16.dp)) {
             Image(
                 imageVector = Icons.Filled.FormatQuote,
@@ -50,7 +58,7 @@ fun QuoteListItem() {
             Spacer(modifier = Modifier.padding(4.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "Time is Money",
+                    text = quote.text,
                     style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
                 )
@@ -63,7 +71,7 @@ fun QuoteListItem() {
                 )
 
                 Text(
-                    text = "Time is Money",
+                    text = quote.author,
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Thin,
                     modifier = Modifier.padding(0.dp, 0.dp, 0.dp, 8.dp)
