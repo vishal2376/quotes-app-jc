@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun QuoteDetail() {
+fun QuoteDetailScreen() {
     Box(
         contentAlignment = Alignment.Center, modifier = Modifier
             .fillMaxSize(1f)
