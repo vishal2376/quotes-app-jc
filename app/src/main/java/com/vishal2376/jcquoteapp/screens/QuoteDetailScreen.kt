@@ -1,5 +1,6 @@
 package com.vishal2376.jcquoteapp.screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,10 +25,16 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.vishal2376.jcquoteapp.DataManager
 import com.vishal2376.jcquoteapp.models.Quote
 
 @Composable
 fun QuoteDetailScreen(quote: Quote) {
+
+    BackHandler {
+        DataManager.switchPages(null)
+    }
+
     Box(
         contentAlignment = Alignment.Center, modifier = Modifier
             .fillMaxSize(1f)
