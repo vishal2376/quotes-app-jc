@@ -23,12 +23,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.vishal2376.jcquoteapp.models.Quote
 
-@Preview
 @Composable
-fun QuoteDetailScreen() {
+fun QuoteDetailScreen(quote: Quote) {
     Box(
         contentAlignment = Alignment.Center, modifier = Modifier
             .fillMaxSize(1f)
@@ -59,11 +58,11 @@ fun QuoteDetailScreen() {
                     contentDescription = null
                 )
                 Text(
-                    text = "Time is money", style = MaterialTheme.typography.headlineMedium
+                    text = quote.text, style = MaterialTheme.typography.headlineMedium
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Text(
-                    text = "Time is money", style = MaterialTheme.typography.bodyLarge
+                    text = quote.author, style = MaterialTheme.typography.bodyLarge
                 )
             }
         }
