@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import java.util.Collections.rotate
 
+@Preview
 @Composable
 fun QuoteListItem() {
     Card(elevation = CardDefaults.cardElevation(5.dp), shape = RoundedCornerShape(10.dp)) {
@@ -69,50 +70,6 @@ fun QuoteListItem() {
                 )
 
 
-            }
-        }
-    }
-}
-
-@Preview
-@Composable
-fun QuoteDetail() {
-    Box(
-        contentAlignment = Alignment.Center, modifier = Modifier
-            .fillMaxSize(1f)
-            .background(
-                Brush.sweepGradient(
-                    colors = listOf(
-                        Color(0xFFffffff), Color(0xFFe3e3e3)
-                    )
-                )
-            )
-    ) {
-        Card(
-            elevation = CardDefaults.cardElevation(5.dp),
-            shape = RoundedCornerShape(4.dp),
-            colors = CardDefaults.cardColors(Color.White),
-            modifier = Modifier
-                .padding(32.dp)
-                .fillMaxWidth(1f)
-        ) {
-            Column(
-                verticalArrangement = Arrangement.Center, modifier = Modifier.padding(16.dp, 24.dp)
-            ) {
-                Image(
-                    imageVector = Icons.Filled.FormatQuote,
-                    modifier = Modifier
-                        .size(80.dp)
-                        .rotate(180f),
-                    contentDescription = null
-                )
-                Text(
-                    text = "Time is money", style = MaterialTheme.typography.headlineMedium
-                )
-                Spacer(modifier = Modifier.padding(4.dp))
-                Text(
-                    text = "Time is money", style = MaterialTheme.typography.bodyLarge
-                )
             }
         }
     }
